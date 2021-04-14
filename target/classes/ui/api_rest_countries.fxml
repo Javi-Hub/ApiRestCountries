@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<VBox fx:id="vbPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="837.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox fx:id="vbPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="867.0" prefWidth="1055.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar>
         <menus>
@@ -36,84 +36,114 @@
           </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane prefHeight="816.0" prefWidth="1009.0">
+      <AnchorPane prefHeight="816.0" prefWidth="1009.0" style="-fx-background-color: #525150;">
          <children>
-            <ProgressIndicator fx:id="piIndicator" layoutX="334.0" layoutY="373.0" prefHeight="40.0" prefWidth="63.0" progress="0.0" />
-            <TableView fx:id="tvData" layoutX="9.0" layoutY="431.0" onMouseClicked="#getCountry" prefHeight="377.0" prefWidth="1039.0" />
-            <Button fx:id="btCountries" layoutX="447.0" layoutY="104.0" mnemonicParsing="false" onAction="#getSelection" text="GET COUNTRIES" />
-            <ComboBox fx:id="cbSelection" layoutX="379.0" layoutY="74.0" prefHeight="25.0" prefWidth="238.0" />
-            <WebView fx:id="wvFlag" layoutX="632.0" layoutY="63.0" prefHeight="250.0" prefWidth="400.0" />
-            <Label layoutX="386.0" layoutY="14.0" text="API RestCountries">
+            <ProgressIndicator fx:id="piIndicator" layoutX="363.0" layoutY="373.0" prefHeight="41.0" prefWidth="23.0" progress="0.0" />
+            <TableView fx:id="tvData" layoutX="9.0" layoutY="431.0" onMouseClicked="#getCountry" prefHeight="404.0" prefWidth="1039.0" style="-fx-background-color: #525150;" />
+            <Button fx:id="btCountries" layoutX="283.0" layoutY="48.0" mnemonicParsing="false" onAction="#getSelection" style="-fx-background-color: #81a8ad;" text="GET COUNTRIES" textFill="#ebebeb">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font></Button>
+            <ComboBox fx:id="cbSelection" layoutX="31.0" layoutY="48.0" prefHeight="25.0" prefWidth="238.0" />
+            <WebView fx:id="wvFlag" layoutX="641.0" layoutY="172.0" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: #525150;" />
+            <Label layoutX="386.0" layoutY="14.0" text="API RestCountries" textFill="#bcbcbc">
                <font>
                   <Font name="Arial Bold" size="27.0" />
                </font>
             </Label>
-            <Label layoutX="784.0" layoutY="33.0" text="FLAG">
+            <Label layoutX="793.0" layoutY="138.0" text="FLAG" textFill="#bcbcbc">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font></Label>
-            <Label layoutX="34.0" layoutY="117.0" text="COUNTRY">
+            <Label layoutX="34.0" layoutY="152.0" text="COUNTRY" textFill="#bcbcbc">
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label layoutX="34.0" layoutY="156.0" text="CODE">
+            <Label layoutX="34.0" layoutY="191.0" text="CODE" textFill="#bcbcbc">
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label layoutX="34.0" layoutY="197.0" text="CAPITAL">
+            <Label layoutX="34.0" layoutY="232.0" text="CAPITAL" textFill="#bcbcbc">
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label layoutX="34.0" layoutY="235.0" text="CONTINENT">
+            <Label layoutX="34.0" layoutY="270.0" text="CONTINENT" textFill="#bcbcbc">
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label layoutX="33.0" layoutY="273.0" text="AREA">
+            <Label layoutX="33.0" layoutY="308.0" text="AREA" textFill="#bcbcbc">
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label fx:id="lbTitle" alignment="CENTER" layoutX="386.0" layoutY="377.0" prefHeight="32.0" prefWidth="238.0" text="Europe">
+            <Label fx:id="lbTitle" alignment="CENTER" layoutX="405.0" layoutY="377.0" prefHeight="32.0" prefWidth="201.0" text="Europe" textFill="#bcbcbc">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font></Label>
-            <Label layoutX="31.0" layoutY="313.0" text="POPULATION">
+            <Label layoutX="31.0" layoutY="348.0" text="POPULATION" textFill="#bcbcbc">
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label layoutX="33.0" layoutY="354.0" text="DEMONYM">
+            <Label layoutX="33.0" layoutY="389.0" text="DEMONYM" textFill="#bcbcbc">
                <font>
-                  <Font name="Arial Bold" size="13.0" />
+                  <Font name="Arial Bold" size="14.0" />
                </font></Label>
-            <Label fx:id="lbCountry" layoutX="141.0" layoutY="117.0" prefHeight="17.0" prefWidth="193.0" />
-            <Label fx:id="lbCode" layoutX="141.0" layoutY="156.0" prefHeight="17.0" prefWidth="193.0" />
-            <Label fx:id="lbCapital" layoutX="141.0" layoutY="197.0" prefHeight="17.0" prefWidth="193.0" />
-            <Label fx:id="lbContinent" layoutX="141.0" layoutY="235.0" prefHeight="17.0" prefWidth="193.0" />
-            <Label fx:id="lbArea" layoutX="141.0" layoutY="273.0" prefHeight="17.0" prefWidth="193.0" />
-            <Label fx:id="lbPopulation" layoutX="141.0" layoutY="313.0" prefHeight="17.0" prefWidth="193.0" />
-            <Label fx:id="lbDemonym" layoutX="141.0" layoutY="354.0" prefHeight="17.0" prefWidth="193.0" />
-            <TextField fx:id="tfMaxPopulation" layoutX="856.0" layoutY="361.0" style="-fx-alignment: center;">
+            <Label fx:id="lbCountry" layoutX="141.0" layoutY="152.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbCode" layoutX="141.0" layoutY="191.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbCapital" layoutX="141.0" layoutY="232.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbContinent" layoutX="141.0" layoutY="270.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbArea" layoutX="141.0" layoutY="308.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbPopulation" layoutX="141.0" layoutY="348.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbDemonym" layoutX="141.0" layoutY="389.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <TextField fx:id="tfMaxPopulation" layoutX="848.0" layoutY="70.0" style="-fx-alignment: center; -fx-background-color: #81A8AD; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="878.0" layoutY="336.0" text="Max Population">
+            <Label layoutX="870.0" layoutY="38.0" text="Max Population" textFill="#bcbcbc">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btFilter" layoutX="805.0" layoutY="393.0" mnemonicParsing="false" onAction="#getFilter" text="GET FILTER" />
-            <TextField fx:id="tfMinPopulation" layoutX="667.0" layoutY="361.0" style="-fx-alignment: center;">
+            <Button fx:id="btFilter" layoutX="789.0" layoutY="105.0" mnemonicParsing="false" onAction="#getFilter" style="-fx-background-color: #81a8ad;" text="GET FILTER" textFill="#ebebeb">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font></Button>
+            <TextField fx:id="tfMinPopulation" layoutX="641.0" layoutY="70.0" style="-fx-alignment: center; -fx-background-color: #81A8AD; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
             </TextField>
-            <Label layoutX="691.0" layoutY="336.0" text="Min Population">
+            <Label layoutX="665.0" layoutY="38.0" text="Min Population" textFill="#bcbcbc">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbOrder" layoutX="386.0" layoutY="185.0" prefHeight="25.0" prefWidth="238.0" />
-            <Button fx:id="btOrder" layoutX="479.0" layoutY="214.0" mnemonicParsing="false" onAction="#loadOrder" text="ORDER" />
+            <ComboBox fx:id="cbOrder" layoutX="31.0" layoutY="83.0" prefHeight="25.0" prefWidth="238.0" />
+            <Button fx:id="btOrder" layoutX="283.0" layoutY="83.0" mnemonicParsing="false" onAction="#loadOrder" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #81a8ad;" text="ORDER" textFill="#ebebeb">
+               <font>
+                  <Font name="Arial Bold" size="13.0" />
+               </font></Button>
          </children>
       </AnchorPane>
    </children>

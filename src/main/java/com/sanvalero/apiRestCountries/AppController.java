@@ -5,7 +5,6 @@ import com.sanvalero.apiRestCountries.service.CountryService;
 import com.sanvalero.apiRestCountries.util.AlertUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,7 +15,6 @@ import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import org.controlsfx.control.WorldMapView;
 import rx.Observable;
 import rx.schedulers.Schedulers;
 
@@ -24,7 +22,6 @@ import java.io.*;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -52,7 +49,7 @@ public class AppController implements Initializable {
     public ObservableList<Country> allCountries = FXCollections.observableArrayList();
     public ObservableList<Country> countriesContinent = FXCollections.observableArrayList();
     public ObservableList<Country> countriesFiltered = FXCollections.observableArrayList();
-    public ObservableList<Country> countriesByPopulation = FXCollections.observableArrayList();
+    public ObservableList<Country> orderedList = FXCollections.observableArrayList();
 
     private CountryService countryService;
     private WebEngine webEngine;
@@ -68,7 +65,7 @@ public class AppController implements Initializable {
         cbSelection.setValue("Select Option");
 
         ObservableList<String> itemsOrder = FXCollections.observableArrayList(
-                "Order By", "Population");
+                "Order By", "Population", "Area");
         cbOrder.setItems(itemsOrder);
         cbOrder.setValue("Order By");
 
@@ -99,6 +96,28 @@ public class AppController implements Initializable {
                 lbTitle.setText(selection);
                 CompletableFuture.runAsync(() -> {
                     loadCountriesContinent(selection);
+                    timeProgressIndicator();
+                }).whenComplete((string, throwable) -> piIndicator.setVisible(false));
+                break;
+        }
+    }
+
+
+    @FXML
+    public void loadOrder(Event event){
+        String selection = cbOrder.getValue();
+        switch (selection){
+            case "Population":
+                lbTitle.setText(selection);
+                CompletableFuture.runAsync(() -> {
+                    orderByPopulation();
+                    timeProgressIndicator();
+                }).whenComplete((string, throwable) -> piIndicator.setVisible(false));
+                break;
+            case "Area":
+                lbTitle.setText(selection);
+                CompletableFuture.runAsync(() -> {
+                    orderByArea();
                     timeProgressIndicator();
                 }).whenComplete((string, throwable) -> piIndicator.setVisible(false));
                 break;
@@ -139,19 +158,6 @@ public class AppController implements Initializable {
                 .whenComplete((string, throwable) -> System.out.println(throwable.getMessage()));
     }
 
-    @FXML
-    public void loadOrder(Event event){
-        String selection = cbOrder.getValue();
-        switch (selection){
-            case "Population":
-                lbTitle.setText(selection);
-                CompletableFuture.runAsync(() -> {
-                    orderByPopulation();
-                    timeProgressIndicator();
-                }).whenComplete((string, throwable) -> piIndicator.setVisible(false));
-                break;
-        }
-    }
 
     @FXML
     public void getCountry(Event event){
@@ -225,11 +231,24 @@ public class AppController implements Initializable {
                 .flatMap(Observable::from)
                 .doOnError(throwable -> System.out.println(throwable.getMessage()))
                 .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
-                .subscribe(country -> countriesByPopulation.add(country));
+                .subscribe(country -> orderedList.add(country));
 
-        tvData.setItems(countriesByPopulation.stream()
+        tvData.setItems(orderedList.stream()
                 .sorted(Comparator.comparingInt(Country::getPopulation))
                 .collect(Collectors.toCollection(FXCollections::observableArrayList)));
+        System.out.println("hola");
+    }
+
+    public void orderByArea(){
+        tvData.getItems().clear();
+        countryService.getAllCountries()
+                .flatMap(Observable::from)
+                .doOnError(throwable -> System.out.println(throwable.getMessage()))
+                .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
+                .subscribe(country -> orderedList.add(country));
+        tvData.setItems(orderedList.stream()
+                            .sorted(Comparator.comparingDouble(Country::getArea))
+                            .collect(Collectors.toCollection(FXCollections::observableArrayList)));
     }
 
     public void loadColumsTable(){
