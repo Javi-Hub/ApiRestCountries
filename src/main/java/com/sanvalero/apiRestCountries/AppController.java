@@ -158,7 +158,6 @@ public class AppController implements Initializable {
                 .whenComplete((string, throwable) -> System.out.println(throwable.getMessage()));
     }
 
-
     @FXML
     public void getCountry(Event event){
         Country country = (Country) tvData.getSelectionModel().getSelectedItem();
@@ -236,7 +235,6 @@ public class AppController implements Initializable {
         tvData.setItems(orderedList.stream()
                 .sorted(Comparator.comparingInt(Country::getPopulation))
                 .collect(Collectors.toCollection(FXCollections::observableArrayList)));
-        System.out.println("hola");
     }
 
     public void orderByArea(){
@@ -250,6 +248,7 @@ public class AppController implements Initializable {
                             .sorted(Comparator.comparingDouble(Country::getArea))
                             .collect(Collectors.toCollection(FXCollections::observableArrayList)));
     }
+
 
     public void loadColumsTable(){
         Field[] fields = Country.class.getDeclaredFields();

@@ -36,9 +36,9 @@
           </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane prefHeight="816.0" prefWidth="1009.0" style="-fx-background-color: #525150;">
+      <AnchorPane prefHeight="844.0" prefWidth="1055.0" style="-fx-background-color: #525150;">
          <children>
-            <ProgressIndicator fx:id="piIndicator" layoutX="363.0" layoutY="373.0" prefHeight="41.0" prefWidth="23.0" progress="0.0" />
+            <ProgressIndicator fx:id="piIndicator" layoutX="494.0" layoutY="319.0" prefHeight="60.0" prefWidth="60.0" progress="0.0" />
             <TableView fx:id="tvData" layoutX="9.0" layoutY="431.0" onMouseClicked="#getCountry" prefHeight="404.0" prefWidth="1039.0" style="-fx-background-color: #525150;" />
             <Button fx:id="btCountries" layoutX="283.0" layoutY="48.0" mnemonicParsing="false" onAction="#getSelection" style="-fx-background-color: #81a8ad;" text="GET COUNTRIES" textFill="#ebebeb">
                <font>
@@ -51,7 +51,7 @@
                   <Font name="Arial Bold" size="27.0" />
                </font>
             </Label>
-            <Label layoutX="793.0" layoutY="138.0" text="FLAG" textFill="#bcbcbc">
+            <Label layoutX="803.0" layoutY="139.0" text="FLAG" textFill="#bcbcbc">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font></Label>
