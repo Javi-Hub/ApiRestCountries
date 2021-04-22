@@ -40,7 +40,6 @@ public class AppController implements Initializable {
     public ComboBox<String> cbSelection, cbOrder;
     public Button btCountries, btFilter, btOrder;
     public ProgressIndicator piIndicator;
-    public ProgressBar pbProgress;
     public WebView wvFlag;
     public Label lbCountry, lbCode, lbCapital, lbContinent, lbArea, lbPopulation, lbDemonym, lbTitle;
     public TableView tvData;
@@ -102,7 +101,6 @@ public class AppController implements Initializable {
         }
     }
 
-
     @FXML
     public void loadOrder(Event event){
         String selection = cbOrder.getValue();
@@ -146,7 +144,6 @@ public class AppController implements Initializable {
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showSaveDialog(null);
         export(file, list);
-
     }
 
     @FXML
@@ -202,18 +199,18 @@ public class AppController implements Initializable {
 
     public void loadCountriesContinent(String continent){
         tvData.getItems().clear();
+        tvData.setItems(countriesContinent);
         countryService.getCountriesContinent(continent)
                 .flatMap(Observable::from)
                 .doOnCompleted(() -> System.out.println("Loading countries: " + continent))
                 .doOnError(throwable -> System.out.println(throwable.getMessage()))
                 .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
                 .subscribe(country -> countriesContinent.add(country));
-        tvData.setItems(countriesContinent);
-
     }
 
     public void loadFilter(int max, int min){
         tvData.getItems().clear();
+        tvData.setItems(countriesFiltered);
         countryService.getAllCountries()
                 .flatMap(Observable::from)
                 .filter(country -> country.getPopulation() < max && country.getPopulation() > min)
@@ -221,15 +218,15 @@ public class AppController implements Initializable {
                 .doOnError(throwable -> System.out.println(throwable.getMessage()))
                 .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
                 .subscribe(country -> countriesFiltered.add(country));
-        tvData.setItems(countriesFiltered);
+
     }
 
     public void orderByPopulation(){
         tvData.getItems().clear();
         countryService.getAllCountries()
                 .flatMap(Observable::from)
+                .doOnCompleted(() -> System.out.println("Loading Data ordered"))
                 .doOnError(throwable -> System.out.println(throwable.getMessage()))
-                .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
                 .subscribe(country -> orderedList.add(country));
 
         tvData.setItems(orderedList.stream()
@@ -242,8 +239,8 @@ public class AppController implements Initializable {
         countryService.getAllCountries()
                 .flatMap(Observable::from)
                 .doOnError(throwable -> System.out.println(throwable.getMessage()))
-                .subscribeOn(Schedulers.from(Executors.newCachedThreadPool()))
                 .subscribe(country -> orderedList.add(country));
+
         tvData.setItems(orderedList.stream()
                             .sorted(Comparator.comparingDouble(Country::getArea))
                             .collect(Collectors.toCollection(FXCollections::observableArrayList)));

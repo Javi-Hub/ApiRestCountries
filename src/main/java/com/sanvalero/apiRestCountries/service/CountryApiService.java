@@ -16,7 +16,6 @@ public interface CountryApiService {
     @GET("/rest/v2/all")
     Observable<List<Country>> getAllCountries();
 
-
     @GET("/rest/v2/region/{region}")
     Observable<List<Country>> getCountriesContinent(@Path("region") String region);
 

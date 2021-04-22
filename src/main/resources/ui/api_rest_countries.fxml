@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -36,82 +37,121 @@
           </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane prefHeight="844.0" prefWidth="1055.0" style="-fx-background-color: #525150;">
+      <AnchorPane prefHeight="844.0" prefWidth="1055.0" style="-fx-background-color: #C70039;">
          <children>
             <ProgressIndicator fx:id="piIndicator" layoutX="494.0" layoutY="319.0" prefHeight="60.0" prefWidth="60.0" progress="0.0" />
-            <TableView fx:id="tvData" layoutX="9.0" layoutY="431.0" onMouseClicked="#getCountry" prefHeight="404.0" prefWidth="1039.0" style="-fx-background-color: #525150;" />
+            <TableView fx:id="tvData" layoutX="9.0" layoutY="431.0" onMouseClicked="#getCountry" prefHeight="404.0" prefWidth="1039.0" style="-fx-background-color: #525150;">
+               <effect>
+                  <DropShadow />
+               </effect></TableView>
             <Button fx:id="btCountries" layoutX="283.0" layoutY="48.0" mnemonicParsing="false" onAction="#getSelection" style="-fx-background-color: #81a8ad;" text="GET COUNTRIES" textFill="#ebebeb">
                <font>
                   <Font name="Arial Bold" size="13.0" />
-               </font></Button>
-            <ComboBox fx:id="cbSelection" layoutX="31.0" layoutY="48.0" prefHeight="25.0" prefWidth="238.0" />
-            <WebView fx:id="wvFlag" layoutX="641.0" layoutY="172.0" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: #525150;" />
-            <Label layoutX="386.0" layoutY="14.0" text="API RestCountries" textFill="#bcbcbc">
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Button>
+            <ComboBox fx:id="cbSelection" layoutX="31.0" layoutY="48.0" prefHeight="25.0" prefWidth="238.0">
+               <effect>
+                  <DropShadow />
+               </effect></ComboBox>
+            <WebView fx:id="wvFlag" layoutX="646.0" layoutY="173.0" prefHeight="250.0" prefWidth="400.0" style="-fx-background-color: #525150;">
+               <effect>
+                  <DropShadow />
+               </effect></WebView>
+            <Label layoutX="387.0" layoutY="6.0" text="API RestCountries" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="27.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </Label>
-            <Label layoutX="803.0" layoutY="139.0" text="FLAG" textFill="#bcbcbc">
+            <Label layoutX="803.0" layoutY="139.0" text="FLAG" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="24.0" />
                </font></Label>
-            <Label layoutX="34.0" layoutY="152.0" text="COUNTRY" textFill="#bcbcbc">
+            <Label layoutX="34.0" layoutY="152.0" text="COUNTRY" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="34.0" layoutY="191.0" text="CODE" textFill="#bcbcbc">
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label layoutX="34.0" layoutY="191.0" text="CODE" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="34.0" layoutY="232.0" text="CAPITAL" textFill="#bcbcbc">
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label layoutX="34.0" layoutY="232.0" text="CAPITAL" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="34.0" layoutY="270.0" text="CONTINENT" textFill="#bcbcbc">
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label layoutX="34.0" layoutY="270.0" text="CONTINENT" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="33.0" layoutY="308.0" text="AREA" textFill="#bcbcbc">
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label layoutX="33.0" layoutY="308.0" text="AREA" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font></Label>
-            <Label fx:id="lbTitle" alignment="CENTER" layoutX="405.0" layoutY="377.0" prefHeight="32.0" prefWidth="201.0" text="Europe" textFill="#bcbcbc">
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label fx:id="lbTitle" alignment="CENTER" layoutX="405.0" layoutY="377.0" prefHeight="32.0" prefWidth="201.0" text="Europe" textFill="#fcfcfc">
                <font>
                   <Font name="Arial Bold" size="24.0" />
-               </font></Label>
-            <Label layoutX="31.0" layoutY="348.0" text="POPULATION" textFill="#bcbcbc">
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label layoutX="31.0" layoutY="348.0" text="POPULATION" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font></Label>
-            <Label layoutX="33.0" layoutY="389.0" text="DEMONYM" textFill="#bcbcbc">
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label layoutX="33.0" layoutY="389.0" text="DEMONYM" textFill="WHITE">
                <font>
-                  <Font name="Arial Bold" size="14.0" />
-               </font></Label>
-            <Label fx:id="lbCountry" layoutX="141.0" layoutY="152.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font></Label>
-            <Label fx:id="lbCode" layoutX="141.0" layoutY="191.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font></Label>
-            <Label fx:id="lbCapital" layoutX="141.0" layoutY="232.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
-               <font>
-                  <Font name="Arial Bold" size="18.0" />
-               </font></Label>
-            <Label fx:id="lbContinent" layoutX="141.0" layoutY="270.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+                  <Font name="Arial Bold" size="15.0" />
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Label>
+            <Label fx:id="lbCountry" layoutX="141.0" layoutY="152.0" prefHeight="21.0" prefWidth="251.0" style="-fx-alignment: center;" textFill="#5db9ff">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="lbArea" layoutX="141.0" layoutY="308.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+            <Label fx:id="lbCode" layoutX="141.0" layoutY="191.0" prefHeight="21.0" prefWidth="251.0" style="-fx-alignment: center;" textFill="#5db9ff">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="lbPopulation" layoutX="141.0" layoutY="348.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+            <Label fx:id="lbCapital" layoutX="141.0" layoutY="232.0" prefHeight="21.0" prefWidth="251.0" style="-fx-alignment: center;" textFill="#5db9ff">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font></Label>
-            <Label fx:id="lbDemonym" layoutX="141.0" layoutY="389.0" prefHeight="17.0" prefWidth="193.0" style="-fx-alignment: center;" textFill="#5db9ff">
+            <Label fx:id="lbContinent" layoutX="141.0" layoutY="270.0" prefHeight="21.0" prefWidth="251.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbArea" layoutX="141.0" layoutY="308.0" prefHeight="21.0" prefWidth="251.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbPopulation" layoutX="141.0" layoutY="348.0" prefHeight="21.0" prefWidth="251.0" style="-fx-alignment: center;" textFill="#5db9ff">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font></Label>
+            <Label fx:id="lbDemonym" layoutX="141.0" layoutY="387.0" prefHeight="21.0" prefWidth="251.0" style="-fx-alignment: center;" textFill="#5db9ff">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font></Label>
@@ -119,8 +159,11 @@
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </TextField>
-            <Label layoutX="870.0" layoutY="38.0" text="Max Population" textFill="#bcbcbc">
+            <Label layoutX="870.0" layoutY="38.0" text="Max Population" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
@@ -128,22 +171,34 @@
             <Button fx:id="btFilter" layoutX="789.0" layoutY="105.0" mnemonicParsing="false" onAction="#getFilter" style="-fx-background-color: #81a8ad;" text="GET FILTER" textFill="#ebebeb">
                <font>
                   <Font name="Arial Bold" size="13.0" />
-               </font></Button>
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Button>
             <TextField fx:id="tfMinPopulation" layoutX="641.0" layoutY="70.0" style="-fx-alignment: center; -fx-background-color: #81A8AD; -fx-text-fill: #FFFFFF;">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
+               <effect>
+                  <DropShadow />
+               </effect>
             </TextField>
-            <Label layoutX="665.0" layoutY="38.0" text="Min Population" textFill="#bcbcbc">
+            <Label layoutX="665.0" layoutY="38.0" text="Min Population" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="18.0" />
                </font>
             </Label>
-            <ComboBox fx:id="cbOrder" layoutX="31.0" layoutY="83.0" prefHeight="25.0" prefWidth="238.0" />
+            <ComboBox fx:id="cbOrder" layoutX="31.0" layoutY="83.0" prefHeight="26.0" prefWidth="238.0">
+               <effect>
+                  <DropShadow />
+               </effect></ComboBox>
             <Button fx:id="btOrder" layoutX="283.0" layoutY="83.0" mnemonicParsing="false" onAction="#loadOrder" prefHeight="25.0" prefWidth="103.0" style="-fx-background-color: #81a8ad;" text="ORDER" textFill="#ebebeb">
                <font>
                   <Font name="Arial Bold" size="13.0" />
-               </font></Button>
+               </font>
+               <effect>
+                  <DropShadow />
+               </effect></Button>
          </children>
       </AnchorPane>
    </children>
